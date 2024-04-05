@@ -54,6 +54,7 @@ Remember that anything you delete here is gone forever!
 | --- | --- |
 | `module avail` | check what tools are available |
 | `module load <tool>` | load the tool you need |
+| `module list` | show loaded tools |
 | `module unload <tool>` | unload a tool you no longer need |
 
 
