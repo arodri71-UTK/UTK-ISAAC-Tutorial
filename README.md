@@ -316,34 +316,17 @@ Slurm is an open-source, fault-tolerant, and highly scalable cluster management 
 #### 6.3. Interactive job
 
 ##### 6.3.1 salloc
-You will have keep the termail a live until the allocation of resources completed 
+You will have to keep the terminal up until the allocation of resources is completed 
 
+`salloc --account isaac-utk0262 --partition=short --qos=short --nodes=1 --ntasks=1 --time=0-00:10:00`
 
-`salloc --nodes=1 --ntasks=1 --time=00:10:00 --partition=campus`
+Once the resources are allocated to you it'll give you a node code, you then do the following command:
 
-##### 6.3.2. srun
+`ssh <node>`
 
-You will have to wait for the allocation of resources 
+#### 6.3. Non-interactive job
 
-`srun -A <account> -N  <#nodes> -n <#cores> -t <time> -p <partition> -q <quality of service> 'script'`
-
-```srun -A ACF-UTK0011 -N 1 -n 1 -t 00:00:30 -p campus -q campus 'hostname'```
-```
-srun: job 1383775 queued and waiting for resources
-srun: job 1383775 has been allocated resources
-clr0821
-```
-`srun -A ACF-UTK0032 -N 1 -n 1 -t 00:00:30 -p condo-ut-genomics -q genomics 'hostname'`
-
-```
-srun: job 1384918 queued and waiting for resources
-srun: job 1384918 has been allocated resources
-ilm0837
-```
-
-#### 6.4. Non-interactive job
-
-##### 6.4.1 Batch
+##### 6.3.1 Batch
 
 An example of the batch job file should look like.
 ```
@@ -368,19 +351,19 @@ An example of the batch job file should look like.
  module load example/test
 
 ```
-#### 6.4.2 Altering batch job
+#### 6.3.2 Altering batch job
 **It will only alter until the job starts running**
 
 `scontrol update JobID=jobid NumTasks=Total_tasks JobName=any_new_name TimeLimit=day-hh:mm:ss`
 
 
-##### 6.4.3. Debugging option 
+##### 6.3.3. Debugging option 
 you can go for an interactive job explained below or use the flag 
  
  	'#SBATCH -p=short'  
   The short partition has a max of 3 hours and a total available resources 48 cores.
 
-#### 6.5. Scheduler and nodes/partition availability
+#### 6.4. Scheduler and nodes/partition availability
 You can check for partition availability by typing `showpartitions`
 
 You can specify a specific partition of interest (I selected 'campus') 
@@ -388,33 +371,8 @@ You can specify a specific partition of interest (I selected 'campus')
 showpartitions | grep campus
 ```
 
-### 6.6. Job priority:
-Each Slurm job's priority is computed based on several factors such as:
-
-- The job's age (how long it's been queueing).
-
-- The job's QOS (resource availability).
-
-- The user's Fairshare (user's usage "resources promised and consumed").
-
-To view the factors that comprise a job's scheduling priority use `Sprio`
-This code will display the priority and other factros including users and accounts with a decending order
-```
-sprio -lS '-Y'
-```
-you can also list and specifiy a partition
-
-```
-sprio -l | grep campus
-
-```
-you can also 
-
-```
-sprio -lS '-Y' -u <username>
-```
 --------------------------------------------------------------
-### 6.7. Sbatch job
+### 6.5. Sbatch job
 In this tutorial, we will do some text manipulation. there are 4 FASTQ files available to use. Let's explore the files first.
 1) let's list the files.
 ```bash
@@ -617,7 +575,7 @@ sys     0m0.002s
 11) run the whole analysis in a script. How much resources should we allocate? 
 
 
-#### 6.10. Using GPU to run your analysis in NVIDIA:
+#### 6.6. Using GPU to run your analysis in NVIDIA:
 https://docs.nvidia.com/clara/parabricks/4.3.0/index.html
 
 https://developer.nvidia.com/blog/taking-gpu-based-ngs-data-analysis-to-another-level-with-clara-parabricks-pipelines-3-0/
