@@ -313,12 +313,17 @@ Slurm is an open-source, fault-tolerant, and highly scalable cluster management 
 
 
 **There are two types of jobs interactive and non-interactive**
-#### 6.3. Interactive job
+#### 6.2. Interactive job
 
-##### 6.3.1 salloc
-You will have to keep the terminal up until the allocation of resources is completed 
+##### 6.2.1 salloc
 
-`salloc --account isaac-utk0262 --partition=short --qos=short --nodes=1 --ntasks=1 --time=0-00:10:00`
+You will have to keep the terminal up until the allocation of resources is completed, the following command would get you resources from the short partition:
+
+`salloc -A ACF-UTK0011 --partition=short --qos=short --nodes=1 --ntasks=1 --time=0-00:10:00`
+
+And this one is the one we commonly use for our lab:
+
+`salloc -A ACF-UTK0009 --nodes=1 --ntasks-per-node=5 --partition=condo-rmccord --time=05:00:00 --qos=condo`
 
 Once the resources are allocated to you it'll give you a node code, you then do the following command:
 
