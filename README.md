@@ -3,7 +3,7 @@
 ## Before you come
 ### 1. Have you filled in the [pre-class survey](https://docs.google.com/forms/d/e/1FAIpQLSe7RZQYl7pppgfshM4Hf9he2mEwyWfIu5Zc5jr7_lU74ioZjg/viewform)
 ### 1.1 Link for this tutorial on Github 
-https://github.com/ruwaa-mohamed/UTK-ISAAC-Tutorial/blob/main/README.md
+https://github.com/arodri71-UTK/UTK-ISAAC-Tutorial
 ### 2. Request an ISAAC account 
 
 2.1. go to [https://oit.utk.edu/hpsc/](https://oit.utk.edu/hpsc/)
@@ -63,6 +63,7 @@ Remember that anything you delete here is gone forever!
 Conda environments are useful for managing specific packages used for different projects within a server. This allows users to specify different packages and versions needed for specific projects without interfering with other projects or users. Conda is also designed to handle package installation in a streamlined manner and avoid issues with manual installation. 
 
 
+
 #### 3.1. Loading Anaconda
 
 First we need to load the anaconda3 module using what we just learned before. If we used `module avail` we would see several versions of Anaconda available on ISAAC, but for now the default will be fine:
@@ -112,7 +113,7 @@ conda install channel::package-name
 ```
 As an example we will install mamba. Mamba is an optional package that helps conda with package installation with features such as faster dependency solving, multi-thread downloading, and a more visually descriptive installation. This can be especially useful if you have a lot of packages installed in your environment, as each new package increases the complexity of dependency solving. If you expect to have a complex environment, you may want to install mamba as your first package in the new environment, then use it to install other packages. To install mamba:
 ```
-conda install conda-forge::mamba
+conda install bioconda::seqtk
 ```
 This will also automatically install any dependencies needed for mamba to work. Once mamba is installed, we can use it to install any further packages. Anywhere you see `conda install`, replace with `mamba install`. All other syntax is the same.
 
