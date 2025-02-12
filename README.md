@@ -1,7 +1,5 @@
 # ***UTK-ISAAC-Tutorial-Colloquium Spring 2024***
 
-## Before you come
-### 1. Have you filled in the [pre-class survey](https://docs.google.com/forms/d/e/1FAIpQLSe7RZQYl7pppgfshM4Hf9he2mEwyWfIu5Zc5jr7_lU74ioZjg/viewform)
 ### 1.1 Link for this tutorial on Github 
 https://github.com/arodri71-UTK/UTK-ISAAC-Tutorial
 ### 2. Request an ISAAC account 
